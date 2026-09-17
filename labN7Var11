@@ -1,0 +1,23 @@
+#include <iostream>
+
+int sumcal(double k,double i){
+    double S = -2*i+1/(i*k);
+    return S;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    double k;
+    std::cout << "введите k "; std::cin >> k; 
+
+    double sum = 0;
+
+    for (double i=1; i <= k; i ++){
+        sum += sumcal(i,k);
+    }
+    std::cout<<(sum);
+
+    return 0;
+}
