@@ -1,17 +1,13 @@
 ﻿#include <iostream>
 #include <cmath>
-#include <windows.h>
-#include <clocale>
 
-int fx(double x) {
+unsigned long long fx(double x) {
     double fx{ 7.3 * (x * x * x) + 1.5 / (x * x) - std::log(x * x - 1) };
     return fx;
 }
 
 
 int main() {
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
     setlocale(LC_ALL, "Russian");
     double x1, xm1, dx, x;
     std::cout << "введите xнач ";

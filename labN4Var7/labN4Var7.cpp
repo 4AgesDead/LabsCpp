@@ -1,12 +1,7 @@
 ﻿#include <iostream>
 #include <cmath>
-#include <windows.h>
-#include <clocale>
-
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
     setlocale(LC_ALL, "Russian");
 
     double x, y;
