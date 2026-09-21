@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main()
+{
+    char majuscules[6] {'9','8','7',' ','5','4'};
+    for (int g=0; g<=5;g++)
+    {
+        for (int j=0;j<g;j++)
+            {
+                std::cout<< ' ';    
+                
+            }
+        for (int i = 0; i <= 5; i++) 
+        {
+            if((g-1!=i) and(g-2!=i) and(g-3!=i) and(g-4!=i)and(g-5!=i)) 
+            {
+                std::cout<< majuscules[i];
+            }
+    }
+        std::cout<<' '<<std::endl;
+    }
+    return 0;
+}
