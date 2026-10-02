@@ -13,7 +13,7 @@ double F(double x) {
     return 0.575 * std::pow(x, 4) - std::cos(x) + 0.5 * x;
 }
 
-double triangleleft( double a, double b,int n ) {
+double formul(double a, double b, int n) {
     double h = (b - a) / n;
     double sum = 0;
     for (int i = 0; i < n; ++i) {
@@ -22,7 +22,7 @@ double triangleleft( double a, double b,int n ) {
     return h * sum;
 }
 
-double triangleright(double a, int n, double b) {
+double formul(double a, int n, double b) {
     double h = (b - a) / n;
     double sum = 0;
     for (int i = 1; i <= n; ++i) {
@@ -31,7 +31,7 @@ double triangleright(double a, int n, double b) {
     return h * sum;
 }
 
-double traps(int n, double a, double b) {
+double formul(int n, double a, double b) {
     double h = (b - a) / n;
     double sum = 0.5 * (f(a) + f(b));
     for (int i = 1; i < n; ++i) {
@@ -40,7 +40,7 @@ double traps(int n, double a, double b) {
     return h * sum;
 }
 
-double Simpson(double n, int k, double a, double b) {
+double formul(double n, int k, double a, double b) {
     double h = (b - a) / n;
     double sum1 = 0;
     double sum2 = 0;
@@ -74,17 +74,17 @@ int main() {
     double tochn = F(b) - f(a);
     n = k;
     std::cout << "Результаты для n = " << n << "\n";
-    std::cout << "Левые прямоугольники: " << triangleleft(n, a, b) << "\n";
-    std::cout << "Правые прямоугольники: " << triangleright(n, a, b) << "\n";
-    std::cout << "Метод трапеций: " << traps(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << Simpson(k, a, b) << "\n";
+    std::cout << "Левые прямоугольники: " << formul(a, b,n) << "\n";
+    std::cout << "Правые прямоугольники: " << formul(a,n, b) << "\n";
+    std::cout << "Метод трапеций: " << formul(n, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << formul(n,k, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
-    n = 10*k;
+    n = 10 * k;
     std::cout << "Результаты для n = " << n << "\n";
-    std::cout << "Левые прямоугольники: " << triangleleft(n, a, b) << "\n";
-    std::cout << "Правые прямоугольники: " << triangleright(n, a, b) << "\n";
-    std::cout << "Метод трапеций: " << traps(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << Simpson(k, a, b) << "\n";
+    std::cout << "Левые прямоугольники: " << formul(a, b, n) << "\n";
+    std::cout << "Правые прямоугольники: " << formul(a, n, b) << "\n";
+    std::cout << "Метод трапеций: " << formul(n, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << formul(n, k, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
 
     return 0;
