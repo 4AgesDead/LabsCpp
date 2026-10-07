@@ -40,17 +40,18 @@ double formul(int n, double a, double b) {
     return h * sum;
 }
 
-double formul(double n, int k, double a, double b) {
+double formul(int n, int k, double a, double b) {
+    if (n != 2 * k || n % 2 != 0) return -1;
+
     double h = (b - a) / n;
 
     double sum1 = 0.0;
-    double sum2 = 0.0;
-
-    for (int i = 1; i <= 2 * k - 1; i += 2) {
+    for (int i = 1; i <= n - 1; i += 2) {
         sum1 += f(a + i * h);
     }
 
-    for (int i = 2; i <= 2 * k - 2; i += 2) {
+    double sum2 = 0.0;
+    for (int i = 2; i <= n - 2; i += 2) {
         sum2 += f(a + i * h);
     }
 
@@ -69,20 +70,20 @@ int main() {
     std::cout << "Введите k: ";
     std::cin >> k;
 
-    double tochn = F(b) - f(a);
+    double tochn = F(b) - F(a);
     n = k;
     std::cout << "Результаты для n = " << n << "\n";
     std::cout << "Левые прямоугольники: " << formul(a, b,n) << "\n";
     std::cout << "Правые прямоугольники: " << formul(a,n, b) << "\n";
     std::cout << "Метод трапеций: " << formul(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << formul(n,k, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << formul(2 * k, k, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
     n = 10 * k;
     std::cout << "Результаты для n = " << n << "\n";
     std::cout << "Левые прямоугольники: " << formul(a, b, n) << "\n";
     std::cout << "Правые прямоугольники: " << formul(a, n, b) << "\n";
     std::cout << "Метод трапеций: " << formul(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << formul(n, k, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << formul(10 * k, 5 * k, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
 
     return 0;

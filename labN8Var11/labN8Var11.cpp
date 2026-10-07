@@ -13,7 +13,7 @@ double F(double x) {
     return 0.575 * std::pow(x, 4) - 3.5 * std::cos(x) + 0.5 * x;
 }
 
-double triangleleft( double a, double b,int n ) {
+double triangleleft(int n, double a, double b) {
     double h = (b - a) / n;
     double sum = 0;
     for (int i = 0; i < n; ++i) {
@@ -22,7 +22,7 @@ double triangleleft( double a, double b,int n ) {
     return h * sum;
 }
 
-double triangleright(double a, int n, double b) {
+double triangleright(int n, double a, double b) {
     double h = (b - a) / n;
     double sum = 0;
     for (int i = 1; i <= n; ++i) {
@@ -40,17 +40,18 @@ double traps(int n, double a, double b) {
     return h * sum;
 }
 
-double Simpson(int n, int k, double a, double b) {
+double Simpson(int n, double a, double b) {
+    if (n % 2 != 0) return -1;
+
     double h = (b - a) / n;
 
     double sum1 = 0.0;
-    double sum2 = 0.0;
-
-    for (int i = 1; i <= 2 * k - 1; i += 2) {
+    for (int i = 1; i <= n - 1; i += 2) {
         sum1 += f(a + i * h);
     }
 
-    for (int i = 2; i <= 2 * k - 2; i += 2) {
+    double sum2 = 0.0;
+    for (int i = 2; i <= n - 2; i += 2) {
         sum2 += f(a + i * h);
     }
 
@@ -69,20 +70,20 @@ int main() {
     std::cout << "Введите k: ";
     std::cin >> k;
 
-    double tochn = F(b) - f(a);
+    double tochn = F(b) - F(a);
     n = k;
     std::cout << "Результаты для n = " << n << "\n";
     std::cout << "Левые прямоугольники: " << triangleleft(n, a, b) << "\n";
     std::cout << "Правые прямоугольники: " << triangleright(n, a, b) << "\n";
     std::cout << "Метод трапеций: " << traps(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << Simpson(n,k, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << Simpson(n, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
     n = 10*k;
     std::cout << "Результаты для n = " << n << "\n";
     std::cout << "Левые прямоугольники: " << triangleleft(n, a, b) << "\n";
     std::cout << "Правые прямоугольники: " << triangleright(n, a, b) << "\n";
     std::cout << "Метод трапеций: " << traps(n, a, b) << "\n";
-    std::cout << "Метод Симпсона: " << Simpson(n,k, a, b) << "\n";
+    std::cout << "Метод Симпсона: " << Simpson(n, a, b) << "\n";
     std::cout << "Точное значение: " << tochn << "\n";
 
     return 0;
