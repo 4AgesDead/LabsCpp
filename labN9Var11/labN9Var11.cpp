@@ -42,21 +42,19 @@ double formul(int n, double a, double b) {
 
 double formul(double n, int k, double a, double b) {
     double h = (b - a) / n;
-    double sum1 = 0;
-    double sum2 = 0;
-    int i = 1;
-    do {
-        sum2 += f(i);
-        i += 2;
-    } while (i <= 2 * k - 1);
-    i = 2;
-    do {
-        sum2 += f(i);
-        i += 2;
-    } while (i <= 2 * k - 2);
 
+    double sum1 = 0.0;
+    double sum2 = 0.0;
 
-    return (h / 3) * ((f(0) + f(2 * k)) + (4 * sum1) + 2 * sum2);
+    for (int i = 1; i <= 2 * k - 1; i += 2) {
+        sum1 += f(a + i * h);
+    }
+
+    for (int i = 2; i <= 2 * k - 2; i += 2) {
+        sum2 += f(a + i * h);
+    }
+
+    return (h / 3.0) * (f(a) + f(b) + 4.0 * sum1 + 2.0 * sum2);
 }
 
 
