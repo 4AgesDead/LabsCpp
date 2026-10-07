@@ -15,4 +15,7 @@
   <Project Path="labN7z2Var11/labN7z2Var11.vcxproj" Id="9b286a26-7508-4ffe-ada2-cd161cc28ffa" />
   <Project Path="labN8Var11/labN8Var11.vcxproj" Id="05f635e4-e6ca-4fdd-adf0-fe13ecedfd18" />
   <Project Path="labN9Var11/labN9Var11.vcxproj" Id="e173d70a-9f01-4e96-a884-76058cd77283" />
+  <Project Path="labN10z1Var11/labN10z1Var11.vcxproj" Id="fee291f3-03f4-4160-9f3c-834aa98bbbeb" />
+  <Project Path="labN10z2Var11/labN10z2Var11.vcxproj" Id="e2440722-5e02-445a-b15d-f6f855fb33e4" />
+  <Project Path="labN10z3Var11/labN10z3Var11.vcxproj" Id="b1ba6408-fcbd-471f-b9aa-2c78589f83a5" />
 </Solution>
