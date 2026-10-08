@@ -3,7 +3,7 @@
 #include <numbers>
 #include <cstdlib>
 
-const double pi{ std::numbers::pi };
+const double pi{ std::acos(-1.0)};
 
 double f(double x) {
     return 2.3 * std::pow(x, 3) + 3.5 * std::sin(x) + 0.5;
