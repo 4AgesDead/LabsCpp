@@ -1,24 +1,24 @@
 #include <iostream>
 #include <cmath>
 
-double f(double& x) {
-    return 4 * std::pow(x, 3) + 4.3 * x + 7.5;
+double f(double* x) {
+    return 4 * std::pow(*x, 3) + 4.3 * *x + 7.5;
 }
 
-void leftlimitation(double& a, double& b) {
-    a = (b + a) / 2;
+void leftlimitation(double* a, double* b) {
+    *a = (*b + *a) / 2;
 }
 
-void rightlimitation(double& a, double& b) {
-    b = (b + a) / 2;
+void rightlimitation(double* a, double* b) {
+    *b = (*b + *a) / 2;
 }
 
-void swap(double& a, double& b) {
+void swap(double* a, double* b) {
     double t;
-    t = a;a = b;b = t;
+    t = *a;*a = *b;*b = t;
 }
-int testlenght(double& a, double& b) {
-    double lenght = std::abs(std::abs(a) - std::abs(b));
+int testlenght(double* a, double* b) {
+    double lenght = std::abs(*a - *b);
     if (lenght > 1) {
         return 0;
     }
@@ -30,17 +30,23 @@ int testlenght(double& a, double& b) {
 int main() {
     setlocale(LC_ALL, "Russian");
     double a, b;
-    std::cout << "Ââåäèòå a ";std::cin >> a;
-    std::cout << "Ââåäèòå b ";std::cin >> b;
-    do {
-        if (testlenght(a, b)) {
-            break;
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ a ";std::cin >> a;
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ b ";std::cin >> b;
+   if(testlenght(&a, &b)!=1){do{
+        std::cout << "\nÐ’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½Ðµ Ð²ÐµÑ€Ð½Ñ‹Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ b";
+        std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ a ";std::cin >> a;
+        std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ b ";std::cin >> b;
+    } while (testlenght(&a, &b)!=1);}
+    
+    std::cout<<a<<' '<<b;
+    double c= a+b/2;
+    do{
+        if (f(&a)<0 and f(&b)>0){
+           leftlimitation(&a,&b);
         }
-        else {
-            std::cout << "\nÂû ââåëè íå âåðíûå çíà÷åíèÿ à è b";
-            std::cout << "\nÂâåäèòå a ";std::cin >> a;
-            std::cout << "Ââåäèòå b ";std::cin >> b;
+        else{
+            rightlimitation(&a,&b);
         }
-    } while (true);
+    }while(f(&a)*f(&c)!=0);
     return 0;
 }
