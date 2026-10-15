@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup><Filter Include="Исходные файлы"><UniqueIdentifier>{b5f0d9e1-0b0a-4d1e-9f11-4a8e0e0a1401}</UniqueIdentifier><Extensions>cpp;c;h</Extensions></Filter></ItemGroup>
+  <ItemGroup><ClCompile Include="labN14Var11.cpp"><Filter>Исходные файлы</Filter></ClCompile></ItemGroup>
+</Project>
