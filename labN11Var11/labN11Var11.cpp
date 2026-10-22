@@ -29,23 +29,12 @@ bool opposite_signs(double x, double y) {
     return (x < 0.0 && y > 0.0) || (x > 0.0 && y < 0.0);
 }
 
-bool valid_sign(double a, double b, double eps) {
-    double fa = f(&a);
-    double fb = f(&b);
-
-    if (!std::isfinite(fa) || !std::isfinite(fb)) {
-        return false;
-    }
-
-    return std::abs(fa) < eps || std::abs(fb) < eps || opposite_signs(fa, fb);
-}
-
 
 
 int main() {
     std::setlocale(LC_ALL, "Russian");
 
-    const double eps = 1e-6;
+    const double eps = 0.0000000001;
     double a, b;
 
     while (true) {
@@ -79,15 +68,9 @@ int main() {
             continue;
         }
 
-        if (!valid_sign(a, b, eps)) {
-            std::cout << "На отрезке нет изменения знака функции. Введите другой отрезок.\n";
-            continue;
-        }
-
         break;
     }
 
-    // Если корень сразу оказался на границе отрезка
     if (std::abs(f(&a)) < eps) {
         std::cout << "Корень находится на конце отрезка: " << a << '\n';
         return 0;
@@ -98,7 +81,6 @@ int main() {
         return 0;
     }
 
-    // Метод дихотомии
     while (std::abs(b - a) > eps) {
         double c = (a + b) / 2.0;
         double fc = f(&c);

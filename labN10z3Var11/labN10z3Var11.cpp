@@ -1,9 +1,10 @@
 ﻿#include <iostream>
+#include <clocale>
 
 void F(int N, int& First, int& Last) {
     Last = N % 10;
     while (N / 10 != 0) {
-        N/=10
+        N/=10;
     }
     First = N;
 }

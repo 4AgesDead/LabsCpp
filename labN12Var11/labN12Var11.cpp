@@ -1,26 +1,83 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
+#include <clocale>
+#include <random>
+
+/// функция для вывода массивов 
+void print(const std::vector<int>& arr) {
+    for (int x : arr) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+}
+
+void printsum5(const std::vector<int>& arr) {
+    int sum;
+    for (int x : arr) {
+        if (x%5==0){
+            sum+=x;
+        }
+    }
+    std::cout <<sum<< std::endl;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Russian");
+    int k;
+    
+    std::cout << "Введите значение k (3,9): ";
+    std::cin >> k;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> distrib(0, 7);
+    std::uniform_int_distribution<int> distrib2(k, k * 3);
 
-    double x1, y1, x2, y2, x3, y3, x4, y4, AB, BC, CD, DA, P;
+    ///создание массивов
+    int num = distrib(gen);
+    std::vector<int> arr1(num);
+    for (int i = 0; i < num; i++) {
+        arr1[i] = distrib2(gen);
+    }
 
-    std::cout << "введите x1 "; std::cin >> x1;
-    std::cout << "введите y1 "; std::cin >> y1;
-    std::cout << "введите x2 "; std::cin >> x2;
-    std::cout << "введите y2 "; std::cin >> y2;
-    std::cout << "введите x3 "; std::cin >> x3;
-    std::cout << "введите y3 "; std::cin >> y3;
-    std::cout << "введите x4 "; std::cin >> x4;
-    std::cout << "введите y4 "; std::cin >> y4;
+    num = distrib(gen);
+    std::vector<int> arr2(num);
+    for (int i = 0; i < num; i++) {
+        arr2[i] = distrib2(gen);
+    }
 
-    AB = std::sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    BC = std::sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
-    CD = std::sqrt((x3 - x4) * (x3 - x4) + (y3 - y4) * (y3 - y4));
-    DA = std::sqrt((x1 - x4) * (x1 - x4) + (y1 - y4) * (y1 - y4));
-    P = AB + BC + CD + DA;
+    num = distrib(gen);
+    std::vector<int> arr3(num);
+    for (int i = 0; i < num; i++) {
+        arr3[i] = distrib2(gen);
+    }
 
-    std::cout << "Периметр четырехугольника: " << P;
+    num = distrib(gen);
+    std::vector<int> arr4(num);
+    for (int i = 0; i < num; i++) {
+        arr4[i] = distrib2(gen);
+    }
+
+    ///вывод массивов
+    std::cout << "1)" << std::endl;
+    print(arr1);
+    std::cout<< "2)" << std::endl;
+    print(arr2);
+    std::cout << "3)" << std::endl;
+    print(arr3);
+    std::cout << "4)" << std::endl;
+    print(arr4);
+    ///вывод суммы элементов кратных 5
+    
+    std::cout << "1)" << std::endl;
+    printsum5(arr1);
+    std::cout<< "2)" << std::endl;
+    printsum5(arr2);
+    std::cout << "3)" << std::endl;
+    printsum5(arr3);
+    std::cout << "4)" << std::endl;
+    printsum5(arr4);
+
+
     return 0;
 }
