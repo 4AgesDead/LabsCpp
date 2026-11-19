@@ -6,7 +6,7 @@ int main()
     char a = 'A'; 
 
    while(a<='Z'){
-       std::cout<<a<<std::endl;
+       std::cout<<a;
        a++;
  }
 return 0;
