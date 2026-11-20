@@ -3,7 +3,6 @@
 
 
 void primesieve(int n,std::vector<int>& arr){
-    int f;
     for (int i=2; i<=n; i++){
         arr.push_back(i);
     }
