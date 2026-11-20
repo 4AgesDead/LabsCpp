@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <clocale>
 #include <random>
 #include <windows.h>
@@ -15,10 +16,12 @@ void print(const std::vector<int>& arr) {
 void printsum5(const std::vector<int>& arr,std::vector<int>& arr2) {
     arr2.clear();
     int sum = 0;
+    int max = *std::max_element(arr.begin(), arr.end());
+    int min = *std::min_element(arr.begin(), arr.end()); 
     for (int x=0; x<arr.size();x++) {
-        if (arr[x] % 5 == 0) {
+        if (arr[x] >=min and arr[x]<=min+(max-min)/2) {
             sum += arr[x];
-            arr2.push_back(arr[x]);
+            arr2.push_back(x);
         }
     }
     print(arr2);
@@ -30,7 +33,7 @@ int main()
 {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
     int k;
     
     std::vector<int> arr;
@@ -72,25 +75,25 @@ int main()
     }
 
     ///вывод массивов
-    std::cout << "1)" << std::endl;
+    std::cout << "1)" ;
     print(arr1);
-    std::cout<< "2)" << std::endl;
+    std::cout<< "2)" ;
     print(arr2);
-    std::cout << "3)" << std::endl;
+    std::cout << "3)";
     print(arr3);
-    std::cout << "4)" << std::endl;
+    std::cout << "4)";
     print(arr4);
 
     std::cout << "номера (индексы) и сумму элементов, значения которых лежат в диапазоне [min+(max-min)/2, max:" << "\n";
 
     
-    std::cout << "1)" << std::endl;
+    std::cout << "1)";
     printsum5(arr1,arr);
-    std::cout<< "2)" << std::endl;
+    std::cout<< "2)" ;
     printsum5(arr2, arr);
-    std::cout << "3)" << std::endl;
+    std::cout << "3)";
     printsum5(arr3, arr);
-    std::cout << "4)" << std::endl;
+    std::cout << "4)";
     printsum5(arr4, arr);
 
 

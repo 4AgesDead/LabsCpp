@@ -2,7 +2,7 @@
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
 
     int secall, sec, hour, minutes;
 

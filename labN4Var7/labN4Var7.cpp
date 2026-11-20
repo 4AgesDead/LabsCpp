@@ -2,7 +2,7 @@
 #include <cmath>
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
 
     double x, y;
     std::cout << "введите координату x ";

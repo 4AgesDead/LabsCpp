@@ -59,7 +59,7 @@ double formul(int n, int k, double a, double b) {
 
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
     double a, b;
     int k, n;
     std::cout << "Введите нижний предел a (не больше " << pi / 12 << "): ";

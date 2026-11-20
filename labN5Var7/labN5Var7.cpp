@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
     char majuscule;
     std::cout << "Ведите одну из данных букв: P, K, T, B, L, R: ";
     if (!(std::cin >> majuscule))

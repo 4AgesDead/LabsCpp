@@ -14,7 +14,7 @@ void swapRef(int& a, int& b) {
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
 
     std::cout << "функция swap\n";
     int a = 5, b = 8;

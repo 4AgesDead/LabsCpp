@@ -23,7 +23,7 @@ void printsum5(const std::vector<int>& arr) {
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
     int k;
     
     std::cout << "Введите значение k (3,9): ";

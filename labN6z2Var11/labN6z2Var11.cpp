@@ -2,7 +2,7 @@
 #include <cmath>
 
 int main() {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, ".UTF-8");
 
     double x;
     std::cout << "Введите значение x: ";

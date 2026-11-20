@@ -10,7 +10,7 @@ void F(int N, int& First, int& Last) {
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
 
     int N;
     std::cout << "Введите натуральное число N: ";

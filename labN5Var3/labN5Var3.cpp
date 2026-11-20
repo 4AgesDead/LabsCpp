@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
 int main() {
-    setlocale(LC_ALL, "Russian");  
+    setlocale(LC_ALL, ".UTF-8");  
 
     int number;
     std::cout << "Введите десятичную цифру: ";

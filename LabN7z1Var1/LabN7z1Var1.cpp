@@ -7,7 +7,7 @@ double sumcal(double k, double i) {
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
 
     double k;
     std::cout << "введите k "; std::cin >> k;

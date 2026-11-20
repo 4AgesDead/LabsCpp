@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <clocale>
 
 int main(){
+    std::setlocale(LC_ALL, ".UTF-8");
+
     std::string str;
     char mas[] = {'#', '!', '@'};
     int n;

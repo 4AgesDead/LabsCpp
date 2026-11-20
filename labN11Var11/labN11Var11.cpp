@@ -32,7 +32,7 @@ bool opposite_signs(double x, double y) {
 
 
 int main() {
-    std::setlocale(LC_ALL, "Russian");
+    std::setlocale(LC_ALL, ".UTF-8");
 
     const double eps = 0.0000000001;
     double a, b;

@@ -8,7 +8,7 @@ unsigned long long fx(double x) {
 
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, ".UTF-8");
     double x1, xm1, dx, x;
     std::cout << "введите xнач ";
     std::cin >> x1;
